@@ -173,15 +173,15 @@ export default function Skills() {
     <section
       id="section-skills"
       ref={sectionRef}
-      style={{ height: '100vh', background: '#0A0A0A', display: 'flex', alignItems: 'center', overflow: 'hidden', position: 'relative' }}
+      style={{ height: '100svh', background: '#0A0A0A', display: 'flex', alignItems: 'center', overflow: 'hidden', position: 'relative' }}
     >
-      <div style={{ position: 'absolute', top: '3rem', left: 'clamp(2rem, 5vw, 5rem)', fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
+      <div style={{ position: 'absolute', top: '3rem', left: 'clamp(1.5rem, 5vw, 5rem)', fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
         Skills &amp; Stack
       </div>
 
       <div
         ref={trackRef}
-        style={{ display: 'flex', gap: '2rem', paddingLeft: 'clamp(2rem, 5vw, 5rem)', paddingRight: '5rem', willChange: 'transform', alignItems: 'center' }}
+        style={{ display: 'flex', gap: '2rem', paddingLeft: 'clamp(1.5rem, 5vw, 5rem)', paddingRight: '5rem', willChange: 'transform', alignItems: 'center' }}
       >
         {SKILLS.map((skill, i) => (
           <SkillCard key={skill.name} {...skill} rotation={ROTATIONS[i]} />

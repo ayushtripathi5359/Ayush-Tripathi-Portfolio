@@ -1,11 +1,19 @@
 import { useState, useEffect } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-function NavItem({ label, href }) {
+const LINKS = [
+  { label: 'Work',       href: '#section-projects' },
+  { label: 'Experience', href: '#section-experience' },
+  { label: 'Skills',     href: '#section-skills' },
+  { label: 'Contact',    href: '#section-contact' },
+]
+
+function NavItem({ label, href, onClick }) {
   const [hovered, setHovered] = useState(false)
   return (
     <a
       href={href}
+      onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -36,13 +44,14 @@ function NavItem({ label, href }) {
 
 export default function Nav() {
   const [visible, setVisible] = useState(false)
+  const [open, setOpen]       = useState(false)
 
   useEffect(() => {
     const trigger = ScrollTrigger.create({
       trigger: '#section-about',
       start: 'top top+=80',
       onEnter: () => setVisible(true),
-      onLeaveBack: () => setVisible(false),
+      onLeaveBack: () => { setVisible(false); setOpen(false) },
     })
     return () => trigger.kill()
   }, [])
@@ -54,7 +63,7 @@ export default function Nav() {
       left: 0,
       right: 0,
       zIndex: 9995,
-      padding: '1.25rem clamp(2rem, 5vw, 5rem)',
+      padding: '1.1rem clamp(1.25rem, 5vw, 5rem)',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -66,12 +75,40 @@ export default function Nav() {
       <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '22px', color: '#ffffff', letterSpacing: '0.05em' }}>
         AYUSH TRIPATHI
       </span>
-      <div style={{ display: 'flex', gap: '2.5rem' }}>
-        <NavItem label="Work"    href="#section-projects" />
-        <NavItem label="Experience" href="#section-experience" />
-        <NavItem label="Skills"  href="#section-skills"   />
-        <NavItem label="Contact" href="#section-contact"  />
+
+      {/* Desktop links */}
+      <div className="nav-links" style={{ display: 'flex', gap: '2.5rem' }}>
+        {LINKS.map(l => <NavItem key={l.href} {...l} />)}
       </div>
+
+      {/* Mobile menu */}
+      <button
+        className="nav-toggle"
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+        aria-label="Toggle menu"
+        style={{
+          display: 'none', background: 'none', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '100px',
+          color: '#FFD166', fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.2em',
+          padding: '0.45rem 0.9rem', textTransform: 'uppercase',
+        }}
+      >
+        {open ? 'Close' : 'Menu'}
+      </button>
+
+      {open && (
+        <div className="nav-panel" style={{
+          position: 'absolute', top: '100%', left: 0, right: 0, background: 'rgba(8,8,8,0.98)',
+          padding: '1.5rem clamp(1.25rem, 5vw, 5rem) 2rem', display: 'none', flexDirection: 'column', gap: '1.4rem',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+        }}>
+          {LINKS.map(l => <NavItem key={l.href} {...l} onClick={() => setOpen(false)} />)}
+          <a href="/Ayush-Tripathi-Resume.pdf" target="_blank" rel="noopener noreferrer"
+            style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.2em', color: '#FFD166', textTransform: 'uppercase' }}>
+            Resume ↗
+          </a>
+        </div>
+      )}
     </nav>
   )
 }

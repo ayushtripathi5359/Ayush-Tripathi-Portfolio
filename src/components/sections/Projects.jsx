@@ -122,6 +122,7 @@ function ProjectRow({ num, name, tags, accent, desc, mockup, href, index, onEnte
     <Row
       {...linkProps}
       ref={rowRef}
+      className="project-row"
       data-cursor={href ? 'VIEW' : 'SOON'}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
@@ -139,15 +140,15 @@ function ProjectRow({ num, name, tags, accent, desc, mockup, href, index, onEnte
       <span ref={numRef} style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: 'rgba(8,8,8,0.35)', letterSpacing: '0.1em', minWidth: '36px' }}>
         {num}
       </span>
-      <div style={{ flex: '1 0 auto', position: 'relative' }}>
+      <div style={{ flex: '1 1 0', minWidth: 0, position: 'relative' }}>
         <span ref={nameRef} style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2.25rem, 5.5vw, 4.75rem)', color: '#080808', letterSpacing: '0.02em', lineHeight: 0.9, display: 'block', willChange: 'transform' }}>
           {name}
         </span>
-        <span ref={viewRef} style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.15em', color: accent, position: 'absolute', bottom: '-18px', left: 0, opacity: 0, transform: 'translateY(8px)', textTransform: 'uppercase' }}>
+        <span ref={viewRef} className="project-desc" style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.15em', color: accent, position: 'absolute', bottom: '-18px', left: 0, opacity: 0, transform: 'translateY(8px)', textTransform: 'uppercase' }}>
           {desc}
         </span>
       </div>
-      <span ref={tagsRef} style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: 'rgba(8,8,8,0.45)', letterSpacing: '0.05em', textAlign: 'right' }}>
+      <span ref={tagsRef} className="project-tags" style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: 'rgba(8,8,8,0.45)', letterSpacing: '0.05em', textAlign: 'right' }}>
         {tags}
       </span>
       <span style={{
@@ -206,7 +207,7 @@ export default function Projects() {
     <section
       id="section-projects"
       ref={sectionRef}
-      style={{ minHeight: '100vh', background: '#F5F0E8', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(5rem, 10vw, 10rem) clamp(2rem, 8vw, 8rem)' }}
+      style={{ minHeight: '100svh', background: '#F5F0E8', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(5rem, 10vw, 10rem) clamp(1.5rem, 8vw, 8rem)' }}
     >
       <p ref={labelRef} style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.3em', color: 'rgba(8,8,8,0.4)', textTransform: 'uppercase', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
         Selected Work
@@ -221,6 +222,7 @@ export default function Projects() {
       {/* Floating animated preview */}
       <div
         ref={previewRef}
+        className="project-preview"
         style={{
           position: 'fixed', top: 0, left: 0,
           width: '380px', height: '260px',

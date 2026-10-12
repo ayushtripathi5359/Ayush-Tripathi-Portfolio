@@ -69,7 +69,7 @@ export default function Process() {
     <section
       id="section-process"
       ref={sectionRef}
-      style={{ minHeight: '100vh', background: '#C77DFF', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(5rem, 8vw, 8rem) clamp(2rem, 8vw, 8rem)', position: 'relative', overflow: 'hidden' }}
+      style={{ minHeight: '100svh', background: '#C77DFF', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(5rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8rem)', position: 'relative', overflow: 'hidden' }}
     >
       <h2
         ref={headlineRef}

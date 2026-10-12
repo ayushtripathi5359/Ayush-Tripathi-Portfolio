@@ -46,7 +46,7 @@ function EmailCTA() {
       onMouseLeave={handleLeave}
       style={{ display: 'inline-block', lineHeight: 1 }}
     >
-      <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2rem, 5vw, 5rem)', letterSpacing: '0.02em', lineHeight: 1, display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(1.2rem, 4.6vw, 5rem)', letterSpacing: '0.02em', lineHeight: 1, display: 'flex', flexWrap: 'wrap' }}>
         {chars.map((ch, i) => (
           <span
             key={i}
@@ -116,7 +116,7 @@ export default function Contact() {
     <section
       id="section-contact"
       ref={sectionRef}
-      style={{ minHeight: '100vh', background: '#080808', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(5rem, 8vw, 8rem) clamp(2rem, 8vw, 8rem)', position: 'relative' }}
+      style={{ minHeight: '100vh', background: '#080808', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(5rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8rem) 6rem', position: 'relative' }}
     >
       {/* Headline */}
       <div ref={headlineRef}>
@@ -126,7 +126,7 @@ export default function Contact() {
               className="cta-line"
               style={{
                 fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: 'clamp(4rem, 11vw, 10rem)',
+                fontSize: 'clamp(3rem, 11vw, 10rem)',
                 color: i === 2 ? '#FFD166' : '#ffffff',
                 letterSpacing: '0.02em',
                 lineHeight: 0.88,
@@ -163,7 +163,7 @@ export default function Contact() {
       </div>
 
       {/* Footer bar */}
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, borderTop: '1px solid rgba(255,255,255,0.07)', padding: '1.2rem clamp(2rem, 8vw, 8rem)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, borderTop: '1px solid rgba(255,255,255,0.07)', padding: '1.2rem clamp(1.5rem, 8vw, 8rem)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
         <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '10px', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.22)', textTransform: 'uppercase' }}>
           Ayush Tripathi · Full Stack Developer
         </span>

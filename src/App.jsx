@@ -15,6 +15,8 @@ import Contact        from './components/sections/Contact.jsx'
 import useSectionColor    from './hooks/useSectionColor.js'
 import useEasterEggs      from './hooks/useEasterEggs.js'
 
+const IS_TOUCH = typeof window !== 'undefined' && window.matchMedia('(hover: none), (pointer: coarse)').matches
+
 export default function App() {
   useSectionColor()
   useEasterEggs()
@@ -22,7 +24,7 @@ export default function App() {
   return (
     <>
       <LoadingScreen />
-      <CustomCursor />
+      {!IS_TOUCH && <CustomCursor />}
       <AmbientLayer />
       <ProgressBar />
       <SectionCount />

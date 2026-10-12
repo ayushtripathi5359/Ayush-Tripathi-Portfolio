@@ -103,11 +103,11 @@ export default function About() {
       id="section-about"
       ref={sectionRef}
       style={{
-        minHeight: '100vh',
+        minHeight: '100svh',
         background: '#FFD166',
         display: 'flex',
         alignItems: 'center',
-        padding: 'clamp(5rem, 8vw, 8rem) clamp(2rem, 8vw, 8rem)',
+        padding: 'clamp(5rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8rem)',
         position: 'relative',
         overflow: 'hidden',
       }}

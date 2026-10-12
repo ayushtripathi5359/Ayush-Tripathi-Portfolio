@@ -16,11 +16,12 @@ const goldText = {
   color: 'transparent',
 }
 
-function NavLink({ label, href, external, gold }) {
+function NavLink({ label, href, external, gold, optional }) {
   const [hovered, setHovered] = useState(false)
   return (
     <a
       href={href}
+      className={optional ? 'hero-nav-opt' : undefined}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       data-cursor="→"
       onMouseEnter={() => setHovered(true)}
@@ -220,7 +221,7 @@ export default function Hero() {
     <section
       id="section-hero"
       ref={sectionRef}
-      style={{ height: '100vh', background: '#080808', position: 'relative', overflow: 'hidden' }}
+      style={{ height: '100svh', minHeight: '520px', background: '#080808', position: 'relative', overflow: 'hidden' }}
     >
       {/* Film grain */}
       <div style={{
@@ -230,7 +231,7 @@ export default function Hero() {
       }} />
 
       {/* Left rail line */}
-      <div className="hero-fade" style={{ position: 'absolute', left: 'clamp(3rem, 8vw, 8rem)', top: 0, bottom: 0, width: '1px', background: 'rgba(255,255,255,0.07)', zIndex: 1 }} />
+      <div className="hero-fade" style={{ position: 'absolute', left: 'clamp(1.75rem, 8vw, 8rem)', top: 0, bottom: 0, width: '1px', background: 'rgba(255,255,255,0.07)', zIndex: 1 }} />
 
       {/* Top bar: monogram · hairline · nav */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, padding: 'clamp(1.25rem, 2.5vw, 2.25rem) clamp(1.5rem, 3vw, 3.5rem)', display: 'flex', alignItems: 'center', gap: '2rem', zIndex: 2 }}>
@@ -238,17 +239,17 @@ export default function Hero() {
           A
         </div>
         <div className="hero-fade hero-hairline" style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }} />
-        <nav className="hero-fade" style={{ display: 'flex', gap: 'clamp(1rem, 2.5vw, 2.75rem)', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-          <NavLink label="WORK"       href="#section-projects" />
-          <NavLink label="EXPERIENCE" href="#section-experience" />
-          <NavLink label="SKILLS"     href="#section-skills" />
+        <nav className="hero-fade" style={{ display: 'flex', gap: 'clamp(1rem, 2.5vw, 2.75rem)', alignItems: 'center', justifyContent: 'flex-end', marginLeft: 'auto' }}>
+          <NavLink optional label="WORK"       href="#section-projects" />
+          <NavLink optional label="EXPERIENCE" href="#section-experience" />
+          <NavLink optional label="SKILLS"     href="#section-skills" />
           <NavLink label="CONTACT"    href="#section-contact" />
           <NavLink label="RESUME ↗"   href="/Ayush-Tripathi-Resume.pdf" external gold />
         </nav>
       </div>
 
       {/* Main content */}
-      <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: 'clamp(4.5rem, 13vw, 15rem)', paddingRight: '2rem', zIndex: 2 }}>
+      <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: 'clamp(3.5rem, 13vw, 15rem)', paddingRight: '1.25rem', zIndex: 2 }}>
         {/* Role label */}
         <div ref={roleRef} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem', marginBottom: 'clamp(1rem, 2vw, 1.75rem)' }}>
           <span style={{ width: '24px', height: '1px', background: GOLD, marginTop: '0.55em', flexShrink: 0 }} />
@@ -258,7 +259,7 @@ export default function Hero() {
         </div>
 
         {/* Name */}
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(76px, 12.5vw, 210px)', lineHeight: 0.86, letterSpacing: '0.01em' }}>
+        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(64px, 12.5vw, 210px)', lineHeight: 0.86, letterSpacing: '0.01em' }}>
           <div style={{ display: 'flex', color: '#F5F3EE' }}>
             {LINE1.map((ch, i) => (
               <span key={i} ref={el => (line1Refs.current[i] = el)} style={letterStyle}>{ch}</span>
@@ -283,7 +284,7 @@ export default function Hero() {
       <Ring outerRef={ringOuter} innerRef={ringInner} crossRef={ringCross} />
 
       {/* Scroll indicator */}
-      <div className="hero-fade" style={{ position: 'absolute', left: 'clamp(3rem, 8vw, 8rem)', bottom: 'clamp(1.5rem, 3vw, 2.5rem)', marginLeft: '2rem', display: 'flex', flexDirection: 'column', gap: '0.9rem', zIndex: 2 }}>
+      <div className="hero-fade" style={{ position: 'absolute', left: 'clamp(1.75rem, 8vw, 8rem)', bottom: 'clamp(1.5rem, 3vw, 2.5rem)', marginLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.9rem', zIndex: 2 }}>
         <span style={{ fontFamily: MONO, fontSize: '10px', letterSpacing: '0.25em', color: 'rgba(255,255,255,0.5)' }}>SCROLL</span>
         <span style={{ color: GOLD, fontSize: '22px', lineHeight: 1, animation: 'heroNudge 2s ease-in-out infinite' }}>↓</span>
       </div>

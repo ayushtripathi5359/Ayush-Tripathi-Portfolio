@@ -27,7 +27,7 @@ export default function SectionCount() {
   }, [])
 
   return (
-    <div style={{
+    <div className="section-count" style={{
       position: 'fixed',
       right: '1.75rem',
       top: '50%',

@@ -64,6 +64,35 @@ a { text-decoration: none; color: inherit; }
   .hero-tag { display: none; }
 }
 
+/* ── Responsive ──────────────────────────────────────────── */
+html { -webkit-text-size-adjust: 100%; }
+
+/* Touch devices: native cursor, no hover-only extras */
+@media (hover: none), (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+  .project-preview, .project-desc, .section-count { display: none !important; }
+}
+
+@media (max-width: 900px) {
+  .section-count { display: none !important; }
+}
+
+@media (max-width: 760px) {
+  .nav-links { display: none !important; }
+  .nav-toggle { display: inline-block !important; }
+  .nav-panel { display: flex !important; }
+
+  .hero-nav-opt { display: none !important; }
+
+  .project-row { flex-wrap: wrap !important; row-gap: 0.5rem !important; }
+  .project-tags { order: 3; width: 100%; text-align: left !important; padding-left: 0 !important; }
+  .project-arrow { margin-left: auto; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-tag { display: none; }
+}
+
 /* ── Keyframes: project mockups ──────────────────────────── */
 @keyframes mockupOrbit {
   to { transform: rotate(360deg); }
