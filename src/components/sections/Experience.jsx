@@ -20,6 +20,7 @@ const JOBS = [
     links: [
       { label: 'MyStayInn Customer', href: 'https://play.google.com/store/apps/details?id=in.co.mystayinn.customer' },
       { label: 'MyStayInn Business', href: 'https://play.google.com/store/apps/details?id=in.co.mystayinn.business' },
+      { label: 'ClusterX', href: 'https://clusterx.ai/' },
     ],
     points: [
       'Joined as a trainee, converted to full-time in Apr 2026. Built and deployed the MyStayInn React Native apps with 15+ REST APIs.',
