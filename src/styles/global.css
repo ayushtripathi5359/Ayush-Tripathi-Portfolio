@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: none !important;
+}
+
+html { font-size: 16px; }
+
+body {
+  background-color: #080808;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { display: none; }
+html { scrollbar-width: none; -ms-overflow-style: none; }
+
+::selection { background: #ffd166; color: #080808; }
+img, video, svg { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+
+/* ── Keyframes: core ─────────────────────────────────────── */
+@keyframes spin         { to { transform: rotate(360deg); } }
+@keyframes counter-spin { to { transform: rotate(-360deg); } }
+
+@keyframes grain {
+  0%   { transform: translate(0,    0   ); }
+  10%  { transform: translate(-2%,  -3% ); }
+  20%  { transform: translate( 3%,   2% ); }
+  30%  { transform: translate(-1%,  -1% ); }
+  40%  { transform: translate( 2%,   3% ); }
+  50%  { transform: translate(-3%,   1% ); }
+  60%  { transform: translate( 1%,  -2% ); }
+  70%  { transform: translate(-2%,   2% ); }
+  80%  { transform: translate( 3%,  -1% ); }
+  90%  { transform: translate(-1%,   3% ); }
+  100% { transform: translate( 0,    0  ); }
+}
+
+@keyframes scrollMarquee {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes heroNudge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+@media (max-width: 900px) {
+  .hero-ring, .hero-rail, .hero-hairline { display: none !important; }
+  .hero-tag { display: none; }
+}
+
+/* ── Keyframes: project mockups ──────────────────────────── */
+@keyframes mockupOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes mockupDot {
+  from { transform: rotate(0deg)   translateX(55px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(55px) rotate(-360deg); }
+}
+
+@keyframes mockupBarWave {
+  from { opacity: 0.55; transform: scaleY(0.92); }
+  to   { opacity: 1;    transform: scaleY(1);    }
+}
+
+@keyframes mockupBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.15; }
+}
+
+@keyframes mockupSwatchPop {
+  from { transform: scale(0.95); opacity: 0.75; }
+  to   { transform: scale(1.02); opacity: 1; }
+}
+
+/* ── Skill card flip ─────────────────────────────────────── */
+.skill-card-wrap {
+  perspective: 1200px;
+  flex-shrink: 0;
+}
+
+.skill-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.skill-card-wrap:hover .skill-card-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-card-back {
+  transform: rotateY(180deg);
+  background: #ffffff;
+  color: #080808;
+  justify-content: space-between;
+}
+
+.proficiency-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 2px;
+  transition: width 0.9s ease 0.4s;
+}
+
+.skill-card-wrap:hover .proficiency-fill {
+  width: var(--bar-width);
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  #smooth-content { transform: none !important; }
+}
