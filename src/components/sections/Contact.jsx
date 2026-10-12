@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { emit } from '../../data/profile.js'
 
 const SOCIALS = [
   { label: 'Resume',   href: '/Ayush-Tripathi-Resume.pdf' },
@@ -160,6 +161,13 @@ export default function Contact() {
         {SOCIALS.map((s) => (
           <SocialLink key={s.label} {...s} />
         ))}
+      </div>
+
+      {/* Extras */}
+      <div style={{ marginTop: '2rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <button className="pill-btn" data-cursor="PLAY" onClick={() => emit('app:game')}>Play Bug Squash</button>
+        <button className="pill-btn" data-cursor="→" onClick={() => emit('app:terminal')}>&gt;_ Open terminal</button>
+        <button className="pill-btn pill-btn-gold" data-cursor="→" onClick={() => emit('app:recruiter', true)}>Recruiter mode</button>
       </div>
 
       {/* Footer bar */}

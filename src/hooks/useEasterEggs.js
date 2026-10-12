@@ -19,9 +19,9 @@ export default function useEasterEggs() {
     ]
     console.log('%c✦', styles[0])
     console.log('%c Hey developer — you found me.', styles[1])
-    console.log('%c Built with React · GSAP · Three.js · obsession', styles[2])
+    console.log('%c Built with React · GSAP · obsession', styles[2])
     console.log('%c Try the Konami code ↑↑↓↓←→←→BA', styles[3])
-    console.log('%c Or press G to go full chaos.', styles[4])
+    console.log('%c Press ` for a terminal, or G to go full chaos.', styles[4])
 
     /* ── Konami code ─────────────────────────────────────── */
     let progress = 0
@@ -39,6 +39,8 @@ export default function useEasterEggs() {
 
     /* ── Keyboard ─────────────────────────────────────────── */
     const onKey = (e) => {
+      if (document.documentElement.dataset.overlay || /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return
+
       /* Konami */
       if (e.key === KONAMI[progress]) {
         progress++

@@ -77,13 +77,14 @@ html { -webkit-text-size-adjust: 100%; }
   .section-count { display: none !important; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
   .nav-links { display: none !important; }
   .nav-toggle { display: inline-block !important; }
   .nav-panel { display: flex !important; }
-
   .hero-nav-opt { display: none !important; }
+}
 
+@media (max-width: 760px) {
   .project-row { flex-wrap: wrap !important; row-gap: 0.5rem !important; }
   .project-tags { order: 3; width: 100%; text-align: left !important; padding-left: 0 !important; }
   .project-arrow { margin-left: auto; }

@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { emit } from '../../data/profile.js'
 
 const LINE1 = 'AYUSH'.split('')
 const LINE2 = 'TRIPATHI'.split('')
@@ -234,7 +235,7 @@ export default function Hero() {
       <div className="hero-fade" style={{ position: 'absolute', left: 'clamp(1.75rem, 8vw, 8rem)', top: 0, bottom: 0, width: '1px', background: 'rgba(255,255,255,0.07)', zIndex: 1 }} />
 
       {/* Top bar: monogram · hairline · nav */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, padding: 'clamp(1.25rem, 2.5vw, 2.25rem) clamp(1.5rem, 3vw, 3.5rem)', display: 'flex', alignItems: 'center', gap: '2rem', zIndex: 2 }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, padding: 'clamp(1.25rem, 2.5vw, 2.25rem) clamp(1.5rem, 3vw, 3.5rem)', display: 'flex', alignItems: 'center', gap: '2rem', zIndex: 3 }}>
         <div className="hero-fade" style={{ width: '44px', height: '44px', borderRadius: '50%', border: `1px solid rgba(255,209,102,0.6)`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: GOLD, fontSize: '18px', flexShrink: 0 }}>
           A
         </div>
@@ -243,7 +244,9 @@ export default function Hero() {
           <NavLink optional label="WORK"       href="#section-projects" />
           <NavLink optional label="EXPERIENCE" href="#section-experience" />
           <NavLink optional label="SKILLS"     href="#section-skills" />
-          <NavLink label="CONTACT"    href="#section-contact" />
+          <NavLink optional label="CONTACT"    href="#section-contact" />
+          <button className="pill-btn hero-nav-opt" data-cursor="→" onClick={() => emit('app:terminal')} aria-label="Open terminal" title="Terminal (press `)">&gt;_</button>
+          <button className="pill-btn pill-btn-gold" data-cursor="→" onClick={() => emit('app:recruiter', true)}>Recruiter mode</button>
           <NavLink label="RESUME ↗"   href="/Ayush-Tripathi-Resume.pdf" external gold />
         </nav>
       </div>

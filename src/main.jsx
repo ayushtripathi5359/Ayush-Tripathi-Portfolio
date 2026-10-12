@@ -7,6 +7,7 @@ import { useGSAP }       from '@gsap/react'
 import Lenis from 'lenis'
 import App from './App.jsx'
 import './styles/global.css'
+import './styles/overlays.css'
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP)
 

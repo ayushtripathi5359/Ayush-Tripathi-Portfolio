@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { PROJECTS } from '../../data/profile.js'
 
 /* ── Animated mockup components ──────────────────────────── */
 function OrbitalMockup() {
@@ -80,15 +81,6 @@ function GemMockup() {
 const MOCKUPS = { orbital: OrbitalMockup, flux: FluxMockup, prism: PrismMockup, gem: GemMockup }
 
 /* ── Data ─────────────────────────────────────────────────── */
-const PROJECTS = [
-  { num: '01', name: 'SIX',                tags: 'Next.js · Redux-Saga',        accent: '#FF6B6B', desc: 'Vehicle & property marketplace for buyers, sellers and dealers', mockup: 'prism',   href: 'https://www.six.ind.in/' },
-  { num: '02', name: 'MYSTAYINN',          tags: 'React Native · Cashfree',     accent: '#4ECDC4', desc: 'Customer app · 15+ APIs, Cashfree payments, 30% faster screens', mockup: 'flux',    href: 'https://play.google.com/store/apps/details?id=in.co.mystayinn.customer' },
-  { num: '03', name: 'MYSTAYINN BUSINESS', tags: 'React Native · Redux-Saga',   accent: '#4ECDC4', desc: 'Property-management app for hosts and business owners', mockup: 'flux',    href: 'https://play.google.com/store/apps/details?id=in.co.mystayinn.business' },
-  { num: '04', name: 'CLUSTERX',           tags: 'AI Agents · Automation',      accent: '#FF6B6B', desc: 'AI agents that automate sales, hiring and operations for businesses', mockup: 'flux',    href: 'https://clusterx.ai/' },
-  { num: '05', name: 'PRESTIGIOUS GAMING', tags: 'React · Tailwind CSS',        accent: '#FFD166', desc: 'Production company website · responsive across devices', mockup: 'orbital', href: 'https://www.prestigiousgaming.in/' },
-  { num: '06', name: 'KARIGAR',            tags: 'Expo · FastAPI · RAG · PayU', accent: '#C77DFF', desc: 'In progress · diamond & jewellery commerce with an AI concierge', mockup: 'gem' },
-]
-
 function ProjectRow({ num, name, tags, accent, desc, mockup, href, index, onEnter, onLeave }) {
   const rowRef  = useRef(null)
   const numRef  = useRef(null)

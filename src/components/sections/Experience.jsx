@@ -1,45 +1,7 @@
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-
-const JOBS = [
-  {
-    role: 'Full Stack Developer',
-    company: 'MECNTEC',
-    period: 'Aug 2026 – Present',
-    points: [
-      'Enhanced real estate CRM modules with React.js, Node.js, Express.js and MongoDB — property tracking, lead management and client workflows.',
-      'Integrated AI voice agents for lead qualification, appointment booking and follow-ups, cutting manual outreach by ~40%.',
-      'Resolved 20+ production issues across frontend, backend and database layers; improved API response times by 25%.',
-    ],
-  },
-  {
-    role: 'Associate Software Engineer',
-    company: 'Medro Hi-Tech Symbol',
-    period: 'Nov 2025 – Jul 2026',
-    links: [
-      { label: 'MyStayInn Customer', href: 'https://play.google.com/store/apps/details?id=in.co.mystayinn.customer' },
-      { label: 'MyStayInn Business', href: 'https://play.google.com/store/apps/details?id=in.co.mystayinn.business' },
-      { label: 'ClusterX', href: 'https://clusterx.ai/' },
-    ],
-    points: [
-      'Joined as a trainee, converted to full-time in Apr 2026. Built and deployed the MyStayInn React Native apps with 15+ REST APIs.',
-      'Implemented Cashfree payment workflows and webhooks, reducing payment processing latency by 20%.',
-      'Cut screen load times by 30% across React.js and React Native via lazy loading, code splitting and memoization.',
-      'Built mobile-first Android and iOS components and managed global state with Redux-Saga.',
-    ],
-  },
-  {
-    role: 'Associate Software Developer Intern',
-    company: 'Prestigious Gaming',
-    period: 'Apr 2025 – Jun 2025',
-    links: [{ label: 'Live site', href: 'https://www.prestigiousgaming.in/' }],
-    points: [
-      'Developed the production website with React.js and Tailwind CSS — landing, features, mission and culture sections.',
-      'Shipped responsive UI components, optimized across desktop and mobile.',
-    ],
-  },
-]
+import { JOBS } from '../../data/profile.js'
 
 export default function Experience() {
   const sectionRef = useRef(null)

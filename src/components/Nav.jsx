@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { emit } from '../data/profile.js'
 
 const LINKS = [
   { label: 'Work',       href: '#section-projects' },
@@ -77,8 +78,10 @@ export default function Nav() {
       </span>
 
       {/* Desktop links */}
-      <div className="nav-links" style={{ display: 'flex', gap: '2.5rem' }}>
+      <div className="nav-links" style={{ display: 'flex', gap: 'clamp(1.25rem, 2.2vw, 2.5rem)', alignItems: 'center' }}>
         {LINKS.map(l => <NavItem key={l.href} {...l} />)}
+        <button className="pill-btn" onClick={() => emit('app:terminal')} aria-label="Open terminal" title="Terminal (press `)">&gt;_</button>
+        <button className="pill-btn pill-btn-gold" onClick={() => emit('app:recruiter', true)}>Recruiter mode</button>
       </div>
 
       {/* Mobile menu */}
@@ -103,6 +106,11 @@ export default function Nav() {
           borderTop: '1px solid rgba(255,255,255,0.08)',
         }}>
           {LINKS.map(l => <NavItem key={l.href} {...l} onClick={() => setOpen(false)} />)}
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <button className="pill-btn pill-btn-gold" onClick={() => { setOpen(false); emit('app:recruiter', true) }}>Recruiter mode</button>
+            <button className="pill-btn" onClick={() => { setOpen(false); emit('app:terminal') }}>&gt;_ Terminal</button>
+            <button className="pill-btn" onClick={() => { setOpen(false); emit('app:game') }}>Bug Squash</button>
+          </div>
           <a href="/Ayush-Tripathi-Resume.pdf" target="_blank" rel="noopener noreferrer"
             style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.2em', color: '#FFD166', textTransform: 'uppercase' }}>
             Resume ↗
